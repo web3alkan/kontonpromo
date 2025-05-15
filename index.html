@@ -4,215 +4,1008 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konton Trade - Finansal Okuryazarlıkta Devrim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #f7931a; /* Bitcoin turuncu */
+            --primary-dark: #d67d0e;
+            --primary-light: #ffd27f;
+            --dark: #2c2c2c;
+            --light: #fdf5e6;
+            --white: #ffffff;
+            --grey: #6c757d;
+            --light-grey: #f8f9fa;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #fdf5e6; /* Açık turuncu arka plan */
-            color: #4A4A4A; /* Koyu gri metin */
+            box-sizing: border-box;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
         }
+
+        /* Header ve Navigation */
         header {
-            background: #f7931a; /* Bitcoin turuncusu */
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
             padding: 1rem 0;
             text-align: center;
-            border-bottom: 5px solid #d67d0e; /* Koyu turuncu border */
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
         header img.logo {
-            max-width: 150px; /* Logo boyutu */
-            margin-bottom: 10px;
+            height: 60px;
+            margin-right: 15px;
         }
+
         header h1 {
-            margin: 0;
             font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         header p {
             font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0.5rem auto;
+            font-weight: 300;
         }
+
         nav {
-            background: #4A4A4A; /* Koyu Gri Navigasyon */
-            color: #fff;
-            padding: 0.5rem;
-            text-align: center;
+            background: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.8rem 1rem;
+        }
+
         nav a {
-            color: #fff;
+            color: var(--white);
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
+
         nav a:hover {
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
+
+        nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
         section {
-            padding: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        section:last-child {
-            border-bottom: none;
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
-            color: #f7931a; /* Başlıklar için Bitcoin turuncusu */
-            border-bottom: 2px solid #f7931a;
-            padding-bottom: 10px;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: var(--dark);
+        }
+
+        /* Feature List */
         .feature-list {
             list-style: none;
             padding: 0;
         }
+
         .feature-list li {
-            background: #fff9f0; /* Çok açık turuncu özellik listesi arka planı */
-            margin-bottom: 10px;
-            padding: 10px;
-            border-left: 5px solid #f7931a; /* Turuncu sol border */
-        }
-        .contact-info p {
-            margin: 5px 0;
-        }
-        .screenshots {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .screenshots img {
-            width: 150px; /* Daha küçük thumbnail boyutu */
-            height: auto;
-            margin: 5px; /* Thumbnailler arası boşluk */
-            border: 2px solid #ddd;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            cursor: pointer; /* Tıklanabilir olduğunu belirtmek için */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .screenshots img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(247, 147, 26, 0.5); /* Turuncu hover gölgesi */
+            background: linear-gradient(to right, rgba(247, 147, 26, 0.05), rgba(255, 255, 255, 0));
+            margin-bottom: 1rem;
+            padding: 1.2rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, background 0.3s ease;
         }
 
-        /* Modal Stilleri */
-        .modal {
-            display: none; /* Başlangıçta gizli */
-            position: fixed;
-            z-index: 1000; /* Diğer her şeyin üzerinde */
-            left: 0;
-            top: 0;
+        .feature-list li:hover {
+            transform: translateX(5px);
+            background: linear-gradient(to right, rgba(247, 147, 26, 0.1), rgba(255, 255, 255, 0));
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-list li.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Screenshots Gallery - Improved Card & Grid */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        .filter-btn {
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--primary-light);
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-gap: 28px;
+            margin-top: 2rem;
+            transition: height 0.5s ease;
+        }
+        .screenshot-card {
+            perspective: 1000px;
+            transition: all 0.5s cubic-bezier(.4,2,.6,1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .screenshot-card.hidden {
+            display: none;
+        }
+        .screenshot-card.filtered-out {
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            pointer-events: none;
+        }
+        .screenshot-inner {
+            position: relative;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.85); /* Yarı saydam siyah arka plan */
-            padding-top: 50px; /* İçeriğin üstten boşluğu */
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(247,147,26,0.10), 0 1.5px 6px rgba(44,44,44,0.08);
+        }
+        .screenshot-card:hover .screenshot-inner {
+            transform: rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 12px 40px rgba(247,147,26,0.18), 0 10px 10px rgba(44,44,44,0.1);
+        }
+        .category-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+        .screenshot-front {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            backface-visibility: hidden;
+            min-height: 360px;
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 18px 18px 0 0;
+            transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+        }
+        .screenshot-card .card-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(247,147,26,0.15) 0%, rgba(44,44,44,0.15) 100%);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s, transform 0.4s;
+            border-radius: 18px 18px 0 0;
+        }
+        .screenshot-card:hover img {
+            transform: scale(1.07);
+        }
+        .screenshot-card:hover .card-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .screenshot-card .zoom-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(44,44,44,0.12);
+            transform: translateY(10px) scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease 0.1s;
+        }
+        .screenshot-card:hover .zoom-icon {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .screenshot-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 1.2rem 0 0.6rem 0;
+            text-align: center;
+            padding: 0 1rem;
+            transition: color 0.3s;
+        }
+        .screenshot-description {
+            font-size: 0.9rem;
+            color: var(--grey);
+            text-align: center;
+            padding: 0 1rem 1rem;
+            line-height: 1.4;
+        }
+        .screenshot-card:hover .screenshot-title {
+            color: var(--primary);
+        }
+
+        /* Modal Enhancements - Zoom & Thumbnails */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content-container {
+            position: relative;
+            width: 100%;
+            height: calc(100% - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
         }
         .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 80%;
-            max-height: 85vh; /* Maksimum yükseklik, viewport'un %85'i */
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44,44,44,0.18);
+            transition: transform 0.5s ease;
+            cursor: zoom-in;
+        }
+        .modal-content.zoomed {
+            transform: scale(1.5);
+            cursor: zoom-out;
+        }
+        .modal-slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0; right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+        .modal-slider-btn {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: 0 2px 12px rgba(44,44,44,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: all 0.3s;
+        }
+        .modal-slider-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
         }
         .modal-caption {
-            margin: 15px auto;
+            margin: 15px auto 0 auto;
             display: block;
             width: 80%;
             max-width: 700px;
             text-align: center;
-            color: #ccc;
+            color: white;
             font-size: 1.2em;
+            padding: 10px 0;
         }
+
         .close-modal {
             position: absolute;
             top: 20px;
             right: 35px;
-            color: #f1f1f1;
+            color: white;
             font-size: 40px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s;
             cursor: pointer;
+            z-index: 1001;
         }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #f7931a; /* Turuncu hover */
-            text-decoration: none;
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
         }
-        footer {
+
+        /* Thumbnails Navigation */
+        .modal-thumbnails {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+        .modal-thumbnails::-webkit-scrollbar {
+            height: 6px;
+        }
+        .modal-thumbnails::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .modal-thumbnails::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 6px;
+        }
+        .modal-thumb {
+            width: 50px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .modal-thumb:hover {
+            opacity: 0.8;
+        }
+        .modal-thumb.active {
+            opacity: 1;
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .screenshots {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-gap: 20px;
+            }
+            .screenshot-card img {
+                height: 230px;
+            }
+            .modal-thumbnails {
+                height: 80px;
+            }
+            .modal-thumb {
+                width: 40px;
+                height: 60px;
+            }
+        }
+        @media (max-width: 600px) {
+            .screenshots {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .screenshot-card img {
+                height: auto;
+                max-height: 400px;
+            }
+        }
+
+        /* Sponsorship Section */
+        #sponsorship {
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        #sponsorship ul {
+            padding-left: 1.5rem;
+        }
+
+        #sponsorship ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        #sponsorship ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        .cta-center {
             text-align: center;
-            padding: 20px;
-            background: #4A4A4A; /* Koyu Gri Footer */
-            color: #fff;
-            margin-top: 20px;
+            margin-top: 2rem;
         }
+
+        /* Contact */
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-info p {
+            margin: 0.7rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Buttons */
         .button {
             display: inline-block;
-            background: #f7931a; /* Bitcoin turuncusu buton */
-            color: #fff;
-            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 25px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-            border: 1px solid #d67d0e; /* Koyu turuncu buton border */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
         .button:hover {
-            background: #d67d0e; /* Koyu turuncu hover */
-            border-color: #b86b0c;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
         }
+
+        .button:hover::before {
+            left: 0;
+        }
+
+        /* Video */
         .video-container {
-            text-align: center;
-            margin-bottom: 20px;
-            background-color: #000; /* Video arka planı siyah */
-            padding: 10px 0;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
+
         .video-container video {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
             display: block;
-            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--dark);
+            color: var(--white);
+            position: relative;
+        }
+
+        footer p {
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            nav a {
+                margin: 0.25rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header img.logo {
+                height: 40px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .screenshots .thumb {
+                width: 120px;
+                height: 240px;
+            }
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--primary-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(365deg); }
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-slide-left.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-slide-right.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Konton Trade Logo" class="logo">
-        <h1>Konton Trade</h1>
-        <p>Finansal Okuryazarlıkta Devrim: Mobil Oyun Konton Trade Sponsorlarını Arıyor!</p>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header class="animate-on-scroll">
+        <div class="logo-container">
+            <img src="logo.png" alt="Konton Trade Logo" class="logo">
+            <h1>Konton Trade</h1>
+        </div>
+        <p>Mobil Oyun Konton Trade Sponsorlarını Arıyor!</p>
     </header>
 
+    <nav>
+        <div class="nav-container">
+            <a href="#intro" class="nav-link" data-section="intro">Giriş</a>
+            <a href="#features" class="nav-link" data-section="features">Özellikler</a>
+            <a href="#screenshots" class="nav-link" data-section="screenshots">Ekran Görüntüleri</a>
+            <a href="#sponsorship" class="nav-link" data-section="sponsorship">Sponsorluk</a>
+            <a href="#contact" class="nav-link" data-section="contact">İletişim</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <section id="intro">
+        <section id="intro" class="section animate-on-scroll">
             <h2>Finansal Okuryazarlıkta Devrim</h2>
-            <p>Bir yıla yakın süren titiz bir çalışmanın ve büyük bir tutkunun ürünü olan <strong>Konton Trade</strong>, finansal okuryazarlığı herkes için erişilebilir ve eğlenceli hale getirmeyi amaçlayan yenilikçi bir iOS mobil oyun simülasyonudur. Artık yayınlanmaya hazır olan bu heyecan verici projeyi daha geniş kitlelere ulaştırmak ve finansal bilinci artırmak için değerli sponsorlarımızla güçlerimizi birleştirmek istiyoruz.</p>
+            <p>Bir yıla yakın süren titiz bir çalışmanın ve büyük bir tutkunun ürünü olan <strong>Konton Trade</strong>, finansal okuryazarlığı herkes için erişilebilir ve eğlenceli hale getirmeyi amaçlayan yenilikçi bir iOS mobil oyun simülasyonudur.</p>
+            <p>Artık yayınlanmaya hazır olan bu heyecan verici projeyi daha geniş kitlelere ulaştırmak ve finansal bilinci artırmak için değerli sponsorlarımızla güçlerimizi birleştirmek istiyoruz.</p>
         </section>
 
-        <section id="features">
+        <section id="features" class="section animate-on-scroll">
             <h2>Oyuncuları Neler Bekliyor?</h2>
-            <p>Konton Trade, oyunculara <strong>100.000 TL sanal bakiye</strong> ile başlayan sürükleyici bir serüven sunuyor. Nihai hedef: Enflasyonun zorlu etkilerine karşı direnerek birikim yapmak, bu birikimleri akıllıca yatırımlara dönüştürmek ve <strong>1 milyon TL değerindeki o hayalinizdeki arabaya ulaşmak!</strong></p>
+            <p class="animate-on-scroll">Konton Trade, oyunculara <strong>100.000 TL sanal bakiye</strong> ile başlayan sürükleyici bir serüven sunuyor. Nihai hedef: Enflasyonun zorlu etkilerine karşı direnerek birikim yapmak, bu birikimleri akıllıca yatırımlara dönüştürmek ve <strong>1 milyon TL değerindeki o hayalinizdeki arabaya ulaşmak!</strong></p>
             
-            <h3>Gerçekçi ve Kapsamlı Bir Yatırım Deneyimi:</h3>
+            <h3 class="animate-on-scroll">Gerçekçi ve Kapsamlı Bir Yatırım Deneyimi:</h3>
             <ul class="feature-list">
-                <li><strong>Borsa İstanbul'un Kalbinde:</strong> Oyuncular, ana yatırım aracı olarak Borsa İstanbul'da işlem gören 600'den fazla şirketin ne iş yaptığını öğrenirken, bu şirketlere yatırım yaparak portföylerini her gün dinamik bir şekilde değerlendiriyor.</li>
-                <li><strong>Gelişmiş Piyasa Simülasyonu:</strong> Arka planda, hisse senedi fiyatlarını modellemek için Geometrik Brown Hareketi gibi dünyaca kabul görmüş stokastik süreçler ve büyük algoritmalarla piyasa dinamikleri her gün yeniden şekilleniyor. Hisse senetleri için bilinçli olarak eklenmiş pozitif bir eğilim (bias) ile oyuncular Borsa İstanbul'a teşvik edilirken, kripto paralar için ise negatif eğilim ve yüksek volatilite ile daha temkinli olmaları gereken korkutucu senaryolarla karşılaşabiliyorlar.</li>
-                <li><strong>Çeşitlendirilmiş Portföy:</strong> Döviz, sabit getirili yatırım araçları ve yatırım fonları gibi farklı seçeneklerle portföy çeşitlendirmenin önemi vurgulanıyor.</li>
-                <li><strong>Öğrenirken Kazan:</strong> BIST'te listelenen 600'den fazla şirketin sembollerini tahmin etmeye dayalı eğlenceli mini oyunumuzla oyuncular, bilgilerini test ederken sanal bakiyelerine ek gelir sağlayabiliyor.</li>
-                <li><strong>Finansal Terimler Sözlüğü:</strong> Oyuncular, 400'den fazla finansal terimi uygulama içinden okuyup öğrenerek finansal jargon hakimiyetlerini artırıyor.</li>
-                <li><strong>Yapay Zeka Destekli Haber Akışı:</strong> Piyasaları anlık olarak yukarı ya da aşağı yönde sert etkileyebilen yapay zeka ile üretilmiş haber akışları, gerçek dünya dinamiklerini yansıtıyor. Daha da önemlisi, her haber metninin altında finansal okuryazarlığa dair yeni bir kavram öğretilerek öğrenme deneyimi pekiştiriliyor.</li>
-                <li><strong>Gerçekçi Maliyetler:</strong> Tıpkı gerçek hayatta olduğu gibi, yatırım araçlarındaki komisyon ve vergiler de simülasyona titizlikle dahil edildi.</li>
-                <li><strong>Bireysel Emeklilik Sistemi (BES) Simülasyonu:</strong> Oyuncular, her ayın 3'ünde güncellenen TÜİK enflasyon rakamlarını takip ediyor. Her ayın 15'inde sanal maaşlarından yeni yatırım için kullanılabilir bakiye elde ediyor ve dilerlerse bu tutarı BES'e aktararak %30 devlet katkısından anında yararlanıp otomatik olarak BEFAS fonlarına yatırım yapabiliyorlar.</li>
+                <li data-delay="0">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <strong>Borsa İstanbul'un Kalbinde:</strong> Oyuncular, ana yatırım aracı olarak Borsa İstanbul'da işlem gören 600'den fazla şirketin ne iş yaptığını öğrenirken, bu şirketlere yatırım yaparak portföylerini her gün dinamik bir şekilde değerlendiriyor.
+                </li>
+                <li data-delay="100">
+                    <i class="fas fa-robot feature-icon"></i>
+                    <strong>Gelişmiş Piyasa Simülasyonu:</strong> Arka planda, hisse senedi fiyatlarını modellemek için Geometrik Brown Hareketi gibi dünyaca kabul görmüş stokastik süreçler ve büyük algoritmalarla piyasa dinamikleri her gün yeniden şekilleniyor. Hisse senetleri için bilinçli olarak eklenmiş pozitif bir eğilim (bias) ile oyuncular Borsa İstanbul'a teşvik edilirken, kripto paralar için ise negatif eğilim ve yüksek volatilite ile daha temkinli olmaları gereken korkutucu senaryolarla karşılaşabiliyorlar.
+                </li>
+                <li data-delay="200">
+                    <i class="fas fa-layer-group feature-icon"></i>
+                    <strong>Çeşitlendirilmiş Portföy:</strong> Döviz, sabit getirili yatırım araçları ve yatırım fonları gibi farklı seçeneklerle portföy çeşitlendirmenin önemi vurgulanıyor.
+                </li>
+                <li data-delay="300">
+                    <i class="fas fa-gamepad feature-icon"></i>
+                    <strong>Öğrenirken Kazan:</strong> BIST'te listelenen 600'den fazla şirketin sembollerini tahmin etmeye dayalı eğlenceli mini oyunumuzla oyuncular, bilgilerini test ederken sanal bakiyelerine ek gelir sağlayabiliyor.
+                </li>
+                <li data-delay="400">
+                    <i class="fas fa-book feature-icon"></i>
+                    <strong>Finansal Terimler Sözlüğü:</strong> Oyuncular, 400'den fazla finansal terimi uygulama içinden okuyup öğrenerek finansal jargon hakimiyetlerini artırıyor.
+                </li>
+                <li data-delay="500">
+                    <i class="fas fa-newspaper feature-icon"></i>
+                    <strong>Yapay Zeka Destekli Haber Akışı:</strong> Piyasaları anlık olarak yukarı ya da aşağı yönde sert etkileyebilen yapay zeka ile üretilmiş haber akışları, gerçek dünya dinamiklerini yansıtıyor. Daha da önemlisi, her haber metninin altında finansal okuryazarlığa dair yeni bir kavram öğretilerek öğrenme deneyimi pekiştiriliyor.
+                </li>
+                <li data-delay="600">
+                    <i class="fas fa-hand-holding-dollar feature-icon"></i>
+                    <strong>Gerçekçi Maliyetler:</strong> Tıpkı gerçek hayatta olduğu gibi, yatırım araçlarındaki komisyon ve vergiler de simülasyona titizlikle dahil edildi.
+                </li>
+                <li data-delay="700">
+                    <i class="fas fa-piggy-bank feature-icon"></i>
+                    <strong>Bireysel Emeklilik Sistemi (BES) Simülasyonu:</strong> Oyuncular, her ayın 3'ünde güncellenen TÜİK enflasyon rakamlarını takip ediyor. Her ayın 15'inde sanal maaşlarından yeni yatırım için kullanılabilir bakiye elde ediyor ve dilerlerse bu tutarı BES'e aktararak %30 devlet katkısından anında yararlanıp otomatik olarak BEFAS fonlarına yatırım yapabiliyorlar.
+                </li>
             </ul>
         </section>
 
-        <section>
+        <section class="section animate-on-scroll">
             <h2>Global Erişim ve Türkiye Piyasasının Tanıtımı</h2>
             <p>Konton Trade, hem <strong>Türkçe</strong> hem de <strong>İngilizce</strong> olarak yayına hazır. Bu sayede sadece yerli kullanıcıların finansal bilincini artırmakla kalmıyor, aynı zamanda yabancı yatırımcılar için de Türkiye piyasasının dinamiklerini ve potansiyelini keşfetmeleri için eşsiz bir platform sunuyoruz.</p>
         </section>
 
-        <section id="sponsorship">
+        <section id="screenshots" class="section animate-on-scroll">
+            <h2>Ekran Görüntüleri</h2>
+            <p class="animate-on-scroll">Farklı özellikleri içeren ekran görüntülerini aşağıda inceleyebilirsiniz. Kategoriye göre filtreleyin veya bir görüntüye tıklayarak büyütün.</p>
+            
+            <div class="filter-container animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+                <button class="filter-btn" data-filter="portfolio">Portföy</button>
+                <button class="filter-btn" data-filter="stocks">Hisse Senetleri</button>
+                <button class="filter-btn" data-filter="crypto">Kripto</button>
+                <button class="filter-btn" data-filter="tools">Araçlar</button>
+                <button class="filter-btn" data-filter="educational">Eğitim</button>
+            </div>
+            
+            <div class="screenshots">
+                <div class="screenshot-card animate-on-scroll" data-delay="0" data-category="portfolio" onclick="openModalSlider(0)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Portföy</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.02.png" alt="Ana Sayfa - Portföy Görünümü">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Ana Sayfa - Portföy</h3>
+                            <p class="screenshot-description">Kullanıcının güncel portföy değerini ve varlık dağılımını gösterir</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="100" data-category="stocks" onclick="openModalSlider(1)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Hisse</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.11.png" alt="Borsa İstanbul Hisse Listesi">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Borsa İstanbul Listesi</h3>
+                            <p class="screenshot-description">600'den fazla BIST şirketini detaylı arayabilir ve inceleyebilirsiniz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="200" data-category="stocks" onclick="openModalSlider(2)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Hisse</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.22.png" alt="Hisse Detayları ve Grafikler">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Hisse Detayları</h3>
+                            <p class="screenshot-description">Şirket bilgileri, teknik analizler ve fiyat grafiklerine ulaşabilirsiniz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="300" data-category="crypto" onclick="openModalSlider(3)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Kripto</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.31.png" alt="Kripto Para Piyasası">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Kripto Para Piyasası</h3>
+                            <p class="screenshot-description">Popüler kripto paralar ve yüksek volatilite simülasyonu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="400" data-category="tools" onclick="openModalSlider(4)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Araçlar</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.45.png" alt="Döviz ve Sabit Getirili Araçlar">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Döviz ve Mevduat</h3>
+                            <p class="screenshot-description">Döviz kurları ve sabit getirili yatırım araçlarının karşılaştırması</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="500" data-category="educational" onclick="openModalSlider(5)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Eğitim</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.14.png" alt="Mini Oyun - Sembol Tahmini">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Mini Oyun</h3>
+                            <p class="screenshot-description">Borsa sembollerini tahmin ederek puanlar kazanın ve bilginizi test edin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="600" data-category="educational" onclick="openModalSlider(6)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Eğitim</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.40.png" alt="Finansal Terimler Sözlüğü">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Finansal Sözlük</h3>
+                            <p class="screenshot-description">400'den fazla finansal terimi basit ve anlaşılır bir şekilde öğrenin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="700" data-category="educational" onclick="openModalSlider(7)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Eğitim</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.18.49.png" alt="Yapay Zeka Destekli Haberler">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">AI Haberler</h3>
+                            <p class="screenshot-description">Yapay zeka ile üretilmiş haberler ve finansal bilgi öğretileri</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="800" data-category="tools" onclick="openModalSlider(8)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Araçlar</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.39.png" alt="BES ve Devlet Katkısı">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">BES Simülasyonu</h3>
+                            <p class="screenshot-description">Bireysel Emeklilik Sistemi simülasyonu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="screenshot-card animate-on-scroll" data-delay="900" data-category="portfolio" onclick="openModalSlider(9)">
+                    <div class="screenshot-inner">
+                        <span class="category-tag">Portföy</span>
+                        <div class="screenshot-front">
+                            <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.55.png" alt="Kullanıcı Profili ve Ayarlar">
+                            <div class="card-overlay">
+                                <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <h3 class="screenshot-title">Kullanıcı Profili</h3>
+                            <p class="screenshot-description">Kişiselleştirme ayarları ve portföy yönetim tercihleri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Modal (Slider) -->
+        <div id="myModal" class="modal">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-content-container">
+                <div class="modal-slider-controls">
+                    <button class="modal-slider-btn" id="modalPrev" onclick="modalPrev(event)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="modal-slider-btn" id="modalNext" onclick="modalNext(event)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <img class="modal-content" id="modalImg" onclick="toggleZoom()">
+                <div id="caption" class="modal-caption"></div>
+            </div>
+            
+            <div class="modal-thumbnails" id="modalThumbs"></div>
+        </div>
+
+        <section id="sponsorship" class="section animate-on-scroll">
             <h2>Neden Konton Trade'e Sponsor Olmalısınız?</h2>
             <ul>
                 <li>Finansal okuryazarlık gibi kritik bir konuda farkındalık yaratan sosyal sorumluluk projesine destek vererek toplumsal katkıda bulunabilir,</li>
@@ -221,48 +1014,26 @@
                 <li>Türkiye ekonomisine ilgi duyan uluslararası bir kitleye erişim imkânı yakalayabilirsiniz.</li>
             </ul>
             <p>Konton Trade, finansal okuryazarlığı bir sonraki seviyeye taşıyacak, eğlendirirken öğreten, kapsamlı ve gerçekçi bir mobil deneyim sunuyor. Bu vizyoner projenin bir parçası olmak, markanızla finansal okuryazarlık hareketine öncülük etmek ve geleceğe yatırım yapmak için sizinle iş birliği yapmaktan heyecan duyarız.</p>
-            <p style="text-align: center; margin-top: 20px;">
-                <a href="#contact" class="button">Sponsorluk Fırsatları İçin İletişime Geçin</a>
+            <p class="cta-center">
+                <a href="#contact" class="button">
+                    <i class="fas fa-handshake"></i> Sponsorluk Fırsatları İçin İletişime Geçin
+                </a>
             </p>
         </section>
 
-        <section id="screenshots">
-            <h2>Ekran Görüntüleri</h2>
-            <p>Uygulamadan bazı ekran görüntüleri aşağıdadır. Büyütmek için bir görsele tıklayın.</p>
-            <div class="screenshots">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.02.png" alt="Konton Trade Ekran Görüntüsü 1" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.11.png" alt="Konton Trade Ekran Görüntüsü 2" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.22.png" alt="Konton Trade Ekran Görüntüsü 3" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.31.png" alt="Konton Trade Ekran Görüntüsü 4" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.45.png" alt="Konton Trade Ekran Görüntüsü 5" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.14.png" alt="Konton Trade Ekran Görüntüsü 6" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.40.png" alt="Konton Trade Ekran Görüntüsü 7" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.18.49.png" alt="Konton Trade Ekran Görüntüsü 8" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.39.png" alt="Konton Trade Ekran Görüntüsü 9" onclick="openModal(this.src, this.alt)">
-                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.55.png" alt="Konton Trade Ekran Görüntüsü 10" onclick="openModal(this.src, this.alt)">
-            </div>
-        </section>
-
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="modalImg">
-            <div id="caption" class="modal-caption"></div>
-        </div>
-
-        <section id="contact" class="contact-info">
+        <section id="contact" class="contact-info section animate-on-scroll">
             <h2>İletişim</h2>
             <p>Detaylı bilgi ve sponsorluk fırsatları için lütfen bizimle iletişime geçin, finansal geleceği birlikte şekillendirelim!</p>
-            <p><strong>Konton Trade İnovasyon ve Geliştirme Koordinatörü</strong></p>
-            <p>Tarık İ. ALKAN</p>
-            <p><strong>E-posta:</strong> <a href="mailto:web3alkan@icloud.com">web3alkan@icloud.com</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tialkan/" target="_blank">linkedin.com/in/tialkan</a></p>
-            <p><strong>Akademik Profil:</strong> <a href="https://avesis.aybu.edu.tr/tialkan" target="_blank">avesis.aybu.edu.tr/tialkan</a></p>
-            <p><strong>Telefon:</strong> <a href="tel:00905448425526">0090 544 842 5526</a></p>
+            <p><i class="fas fa-user"></i> <strong>Konton Trade İnovasyon ve Geliştirme Koordinatörü</strong></p>
+            <p><i class="fas fa-id-card"></i> Tarık İ. ALKAN</p>
+            <p><i class="fas fa-envelope"></i> <strong>E-posta:</strong> <a href="mailto:web3alkan@icloud.com">web3alkan@icloud.com</a></p>
+            <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tialkan/" target="_blank">linkedin.com/in/tialkan</a></p>
+            <p><i class="fas fa-university"></i> <strong>Akademik Profil:</strong> <a href="https://avesis.aybu.edu.tr/tialkan" target="_blank">avesis.aybu.edu.tr/tialkan</a></p>
+            <p><i class="fas fa-phone"></i> <strong>Telefon:</strong> <a href="tel:00905448425526">0090 544 842 5526</a></p>
         </section>
     </div>
 
-    <div class="video-container">
+    <div class="video-container animate-on-scroll">
         <video controls autoplay muted loop playsinline>
             <source src="konton.mp4" type="video/mp4">
             Tarayıcınız video etiketini desteklemiyor.
@@ -270,39 +1041,359 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Konton Trade. Tüm hakları saklıdır.</p>
+        <p>&copy; 2025 Konton Trade. Tüm hakları saklıdır.</p>
     </footer>
 
+    <a href="#" id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
-        // Modal elementlerini al
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("modalImg");
-        var captionText = document.getElementById("caption");
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('loaded');
+        });
 
-        // Modal'ı açan fonksiyon
-        function openModal(src, alt) {
-            modal.style.display = "block";
-            modalImg.src = src;
-            captionText.innerHTML = alt;
+        // --- Enhanced Modal/Slider for Screenshots ---
+        const screenshots = [
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.02.png",
+                alt: "Portföy görünümü",
+                desc: "Ekranın üst kısmında, Borsa İstanbul’da işlem gören şirketlerin sembolleri ve adlarıyla birlikte güncel fiyat hareketleri canlı olarak akıyor. Varlık kartında, oyuncunun toplam bakiyesi, kullanılabilir nakdi ve yatırım araçlarına dağıtılan portföy miktarları net bir şekilde görüntüleniyor. Simülasyondaki enflasyon oranı ise her ayın 3’ünde güncellenerek gerçek hayattaki TÜİK verileri gibi ekonomik değişimleri simülasyonun geneline yansıtıyor. Simülasyon Hız Kontrolü kartında oyun zamanı yönetilebiliyor; oynat tuşuyla günler seçilen hızda ilerliyor, durdur tuşuyla akış durdurulabiliyor ve sardıralarak bir sonraki güne hızlıca geçilebiliyor.",
+                category: "portfolio"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.11.png",
+                alt: "Varlık Alımları Yapılmış Görünüm",
+                desc: "Oyuncunun ulaşmayı hedeflediği 1 milyon lira değerindeki araba yüzde olarak ne kadar yaklaşıldığıyla gösteriliyor. Ancak bu hedef statik değil; araç fiyatı her gün enflasyon oranında artıyor, bu da oyuncuları yatırımlarında enflasyonu yenmeye teşvik ediyor. Oyuna yeni başlayan kullanıcılar için, rehber niteliğindeki Model Portföy seçeneği sunuluyor. Bu seçenek tercih edildiğinde, başlangıç bakiyesi olan 100 bin lira; hisse senetleri, döviz, sabit getirili yatırım araçları (vadeli mevduat, katılım hesabı, bono, tahvil) ve yatırım fonları arasında dengeli bir şekilde dağıtılarak çeşitlendirilmiş bir portföy oluşturuluyor. Alt menüdeki gezinti düğmeleri sayesinde oyuncular; piyasadaki anlık fiyatları inceleyebiliyor, yatırım işlemlerini gerçekleştirebiliyor, güncel haber akışlarını takip edebiliyor ve Borsa İstanbul’da listelenen şirket sembollerini tahmin etmeye dayalı mini oyunu oynayarak sanal bakiyelerine ek gelir elde edebiliyor.",
+                category: "stocks"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.22.png",
+                alt: "Hisse Senedi Görünümü",
+                desc: "600’ü aşkın hisse senedinin fiyatları, simülasyonda geçen her bir günde Geometrik Brownian Hareketi başta olmak üzere çeşitli iktisadi algoritmalar aracılığıyla dinamik biçimde dalgalanıyor. Bu sayede, oyunculara gerçek piyasa koşullarını yansıtan, istatistiksel temellere dayalı ve öngörülemeyen fiyat hareketlerinin yaşandığı canlı bir yatırım deneyimi sunuluyor.",
+                category: "stocks"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.31.png",
+                alt: "Alım Satım Görünümü",
+                desc: "Kullanılabilir bakiyenin yüzde kaçıyla işlem yapılacağı, kaydırma çubuğuyla kolayca belirlenebiliyor; dileyen kullanıcılar ise manuel olarak adet girerek alım satım gerçekleştirebiliyor. Gerçek hayattaki yatırım deneyimini yansıtmak adına, tüm işlemler komisyon ve vergi kesintileriyle birlikte simüle ediliyor. Finansal okuryazarlığı desteklemek amacıyla, her şirketin alım-satım ekranında o firmaya dair kısa, anlaşılır bir bilgilendirme notu yer alıyor. Şirket adının yanındaki grafik simgesine tıklanarak ilgili hisse senedinin son üç aya ait fiyat dalgalanma grafiği de incelenebiliyor; böylece kullanıcılar daha bilinçli yatırım kararları alabiliyor.",
+                category: "crypto"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.45.png",
+                alt: "Ayarlar Görünümü",
+                desc: "Oyun ilerledikçe oyuncular, çeşitli başarımlara dayalı olarak 50’ye yakın rozet kazanmaya başlıyor; örneğin, beş farklı hisse senedine yatırım yapan kullanıcılar riski çeşitlendirdikleri için özel bir rozetle ödüllendiriliyor. Henüz aktif olmamakla birlikte, uygulamanın ilerleyen sürümlerinde eklenecek çevrim içi özellikler için her kullanıcıya, yapay zeka tarafından otomatik olarak eğlenceli bir kullanıcı adı atanıyor. Uygulama şu anda İngilizce dil seçeneğiyle de kullanılabiliyor ve gelecek versiyonlarda yeni dil seçenekleri eklenecek. Göz sağlığını gözeten kullanıcılar için karanlık mod da destekleniyor. Merkez Bankası piyasa müdahalesi özelliği aktifleştirildiğinde ise döviz kurlarındaki volatilite büyük ölçüde azaltılarak fiyatlar neredeyse sabit hale getiriliyor. Ayrıca, simülasyonda günlerin kaç saniyede bir ilerleyeceği tamamen kullanıcı tercihiyle belirlenebiliyor; böylece deneyim hızı kişisel oyun tarzına göre ayarlanabiliyor.",
+                category: "tools"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.14.png",
+                alt: "Mini Oyun",
+                desc: "Borsa İstanbul tahmin oyununda, oyunculara 600’ün üzerinde şirketten rastgele sorular yöneltiliyor. Oyuna katılmak için 5.000 TL sanal bakiye ödemek gerekiyor. Her doğru cevap oyuncuya ek gelir kazandırırken, yanlış cevaplar bakiye kaybına neden oluyor. Oyuncunun en fazla üç yanlış yapma hakkı bulunuyor; üç hatanın ardından oyun sona eriyor. Her soruda, kısa bir açıklama sunuluyor ve oyuncudan bu açıklamaya dayanarak verilen beş şık arasından doğru BIST sembolünü seçmesi bekleniyor. Bu oyun, hem bilgi düzeyini sınama hem de finansal okuryazarlığı eğlenceli bir şekilde artırma amacı taşıyor.",
+                category: "educational"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.40.png",
+                alt: "Finansal Terimler Sözlüğü",
+                desc: "Finansal Terimler Sözlüğü, oyuncuların yatırım ve ekonomi alanındaki hem temel hem de ileri düzey kavramları sade ve anlaşılır biçimde öğrenmelerini sağlayan interaktif bir öğrenme alanı sunuyor. Bu sözlük, simülasyonda alınacak kararların arkasındaki kavramları kavrayarak oyuncunun finansal okuryazarlığını derinleştirmesine yardımcı oluyor. Her açılışta terimlerin sıralaması rastgele yenileniyor; böylece oyuncular her seferinde farklı 3-4 terimle karşılaşıp öğrenme sürecini sıkıcı olmaktan çıkararak dinamik hale getiriyor. Kullanıcılar dilerse terimleri alfabetik olarak sıralayabiliyor ya da yalnızca birkaç harf yazarak arama yapabiliyor. Bu sayede sözlük sadece bilgilendirici değil, aynı zamanda erişimi kolay ve pratik bir öğrenme aracına dönüşüyor.",
+                category: "educational"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.18.49.png",
+                alt: "Yapay Zeka Destekli Haberler",
+                desc: "Simülasyonun en dikkat çekici unsurlarından biri olan yapay zeka destekli haber akışı, oyuncunun sürekli takipte kalmasını gerektiren dinamik bir bilgi ortamı sunuyor. Gerçek dünya piyasalarındaki volatiliteyi taklit eden bu kurgusal haberler, oyuncunun portföyünü olumlu ya da olumsuz etkileyebilecek gelişmeleri yansıtıyor. Her haberin içinde, finansal okuryazarlığı geliştirmeye yönelik özel olarak seçilmiş bir kavram da tanıtılıyor. Oyuncu üç haberi arka arkaya okumadan biriktirirse, oyun onu otomatik olarak haberler ekranına yönlendiriyor. Bu sistem, oyuncunun pasif kalmasını önleyip, aktif şekilde bilgiye maruz kalmasını ve bu bilgiyi yatırım kararlarına entegre etmesini teşvik ediyor.",
+                category: "educational"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.39.png",
+                alt: "Örnek Haber İçeriği",
+                desc: "Oyuncu yapay zeka tarafından üretilmiş kurgusal haberin etkisini analiz ederek “Haberin Etkisini Uygula” butonuna bastığında, ilgili sektörün hisselerinde yukarı ya da aşağı yönlü fiyat hareketi tetikleniyor. Bu sistem, oyuncunun dikkatini hem haberlere hem de haberlerin finansal etkilerine yönlendirmeyi amaçlıyor. Ayrıca haber içinde geçen (bu örnekte “Ekonomik Etki Analizi” gibi) terimler, oyuncunun finansal okuryazarlığını artıracak şekilde bilinçli yerleştirilmiş. Her haber metninin sonunda mutlaka bir tane finansal kavram var.",
+                category: "tools"
+            },
+            {
+                src: "screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.55.png",
+                alt: "Etki Uygulanmak Zorunda",
+                desc: "Simülasyonda bir haber yayınlandığında oyuncuların hemen o haberin etkisi piyasalara yansımadan hızlıca alım satım yapmasını önlemek için bir mekanizma bulunuyor. Böylece, oyuncuların gerçekçi ve dengeli kararlar alması teşvik ediliyor; piyasa hareketleri haberlerin etkisiyle doğal şekilde şekilleniyor. Bu engelleme, oyunun finansal simülasyonunu ve öğrenme deneyimini daha gerçekçi ve adil hale getiriyor.",
+                category: "portfolio"
+            }
+        ];
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Get filter value
+                const filter = btn.dataset.filter;
+                
+                // Filter cards
+                const cards = document.querySelectorAll('.screenshot-card');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('filtered-out');
+                        setTimeout(() => card.classList.remove('hidden'), 50);
+                    } else {
+                        card.classList.add('filtered-out');
+                        setTimeout(() => card.classList.add('hidden'), 500);
+                    }
+                });
+            });
+        });
+
+        let currentScreenshot = 0;
+        let isZoomed = false;
+
+        // Initialize modal with thumbnails
+        const initializeModal = () => {
+            const thumbsContainer = document.getElementById('modalThumbs');
+            thumbsContainer.innerHTML = '';
+            
+            screenshots.forEach((screenshot, idx) => {
+                const thumb = document.createElement('img');
+                thumb.src = screenshot.src;
+                thumb.alt = `Thumbnail ${idx+1}`;
+                thumb.classList.add('modal-thumb');
+                if (idx === currentScreenshot) thumb.classList.add('active');
+                thumb.onclick = (e) => {
+                    e.stopPropagation();
+                    currentScreenshot = idx;
+                    showModalScreenshot();
+                };
+                thumbsContainer.appendChild(thumb);
+            });
+        };
+
+        function openModalSlider(idx) {
+            currentScreenshot = idx;
+            isZoomed = false;
+            
+            // Initialize and show modal
+            initializeModal();
+            showModalScreenshot();
+            
+            const modalElement = document.getElementById('myModal');
+            modalElement.style.display = "block";
+            document.body.style.overflow = 'hidden';
+            
+            // Scroll to active thumbnail
+            scrollToActiveThumbnail();
         }
 
-        // Modal'ı kapatan fonksiyon (span X tıklandığında)
+        function showModalScreenshot() {
+            const img = document.getElementById('modalImg');
+            const caption = document.getElementById('caption');
+            const screenshot = screenshots[currentScreenshot];
+            
+            img.src = screenshot.src;
+            img.alt = screenshot.alt;
+            img.classList.remove('zoomed'); // Reset zoom
+            isZoomed = false;
+            
+            // Update caption with title and description
+            caption.innerHTML = `<strong>${screenshot.alt}</strong><br>${screenshot.desc}`;
+            
+            // Update active thumbnail
+            const thumbs = document.querySelectorAll('.modal-thumb');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentScreenshot) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+            
+            scrollToActiveThumbnail();
+        }
+
+        function scrollToActiveThumbnail() {
+            setTimeout(() => {
+                const activeThumb = document.querySelector('.modal-thumb.active');
+                if (activeThumb) {
+                    const container = document.getElementById('modalThumbs');
+                    container.scrollLeft = activeThumb.offsetLeft - container.offsetWidth / 2 + activeThumb.offsetWidth / 2;
+                }
+            }, 100);
+        }
+
+        function modalPrev(e) {
+            e.stopPropagation();
+            currentScreenshot = (currentScreenshot - 1 + screenshots.length) % screenshots.length;
+            showModalScreenshot();
+        }
+
+        function modalNext(e) {
+            e.stopPropagation();
+            currentScreenshot = (currentScreenshot + 1) % screenshots.length;
+            showModalScreenshot();
+        }
+
+        function toggleZoom() {
+            const img = document.getElementById('modalImg');
+            isZoomed = !isZoomed;
+            if (isZoomed) {
+                img.classList.add('zoomed');
+            } else {
+                img.classList.remove('zoomed');
+            }
+        }
+        
         function closeModal() {
+            const modal = document.getElementById('myModal');
             modal.style.display = "none";
+            document.body.style.overflow = 'auto';
         }
-
-        // Modal'ın dışına tıklandığında kapat
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // ESC tuşu ile modalı kapat
+        
+        // Modal navigation with keyboard
         document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                closeModal();
+            if (document.getElementById('myModal').style.display === "block") {
+                if (event.key === "ArrowLeft") modalPrev(event);
+                if (event.key === "ArrowRight") modalNext(event);
+                if (event.key === "Escape") closeModal();
+                if (event.key === " ") { // Space bar for zoom toggle
+                    toggleZoom();
+                    event.preventDefault();
+                }
             }
+        });
+
+        // Aktif menü öğesini güncelleme
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("data-section") === current) {
+                    link.classList.add("active");
+                }
+            });
+
+            // Back to top butonu göster/gizle
+            const backToTop = document.getElementById("back-to-top");
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
+
+        // Back to top butonu fonksiyonu
+        document.getElementById("back-to-top").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Sayfa yüklendiğinde scroll pozisyonunu kontrol et
+        document.addEventListener("DOMContentLoaded", function() {
+            window.dispatchEvent(new Event("scroll"));
+        });
+
+        // Smooth scrolling - menü öğelerine tıklandığında
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animations
+        const scrollElements = document.querySelectorAll(".animate-on-scroll, .feature-list li, .screenshots .thumb");
+
+        const elementInView = (el, percentageScroll = 100) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= 
+                (window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100)
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            const delay = element.dataset.delay || 0;
+            setTimeout(() => {
+                element.classList.add("animated");
+            }, delay);
+        };
+
+        const hideScrollElement = (element) => {
+            element.classList.remove("animated");
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 80)) { // Ekranın %80'ine geldiğinde tetikle
+                    displayScrollElement(el);
+                } 
+                // İsteğe bağlı: Ekrandan çıktığında animasyonu geri almak için
+                // else if (!elementInView(el, 0)) { 
+                //     hideScrollElement(el)
+                // }
+            })
+        }
+
+        window.addEventListener("scroll", () => {
+            handleScrollAnimation();
+            // Aktif menü ve back-to-top için scroll event listener'ı burada birleşiyor.
+            let currentSection = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute("id");
+                }
+            });
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("data-section") === currentSection) {
+                    link.classList.add("active");
+                }
+            });
+            const backToTop = document.getElementById("back-to-top");
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
+
+        // Sayfa yüklendiğinde scroll pozisyonunu ve animasyonları kontrol et
+        document.addEventListener("DOMContentLoaded", function() {
+            handleScrollAnimation(); // İlk yüklemede görünenleri animate et
+            // Mevcut scroll event tetikleyicisi:
+            let event;
+            if(typeof(Event) === 'function') {
+                event = new Event('scroll');
+            } else {
+                event = document.createEvent('Event');
+                event.initEvent('scroll', true, true);
+            }
+            window.dispatchEvent(event);
+        });
+
+        // Smooth scrolling - menü öğelerine tıklandığında (mevcut kod)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
