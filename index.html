@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konton Trade - Finansal Okuryazarlıkta Devrim</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf5e6; /* Açık turuncu arka plan */
+            color: #4A4A4A; /* Koyu gri metin */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        header {
+            background: #f7931a; /* Bitcoin turuncusu */
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 5px solid #d67d0e; /* Koyu turuncu border */
+        }
+        header img.logo {
+            max-width: 150px; /* Logo boyutu */
+            margin-bottom: 10px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav {
+            background: #4A4A4A; /* Koyu Gri Navigasyon */
+            color: #fff;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            color: #f7931a; /* Başlıklar için Bitcoin turuncusu */
+            border-bottom: 2px solid #f7931a;
+            padding-bottom: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            background: #fff9f0; /* Çok açık turuncu özellik listesi arka planı */
+            margin-bottom: 10px;
+            padding: 10px;
+            border-left: 5px solid #f7931a; /* Turuncu sol border */
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        .screenshots {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .screenshots img {
+            width: 150px; /* Daha küçük thumbnail boyutu */
+            height: auto;
+            margin: 5px; /* Thumbnailler arası boşluk */
+            border: 2px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer; /* Tıklanabilir olduğunu belirtmek için */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .screenshots img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(247, 147, 26, 0.5); /* Turuncu hover gölgesi */
+        }
+
+        /* Modal Stilleri */
+        .modal {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            z-index: 1000; /* Diğer her şeyin üzerinde */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85); /* Yarı saydam siyah arka plan */
+            padding-top: 50px; /* İçeriğin üstten boşluğu */
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 85vh; /* Maksimum yükseklik, viewport'un %85'i */
+        }
+        .modal-caption {
+            margin: 15px auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            font-size: 1.2em;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #f7931a; /* Turuncu hover */
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #4A4A4A; /* Koyu Gri Footer */
+            color: #fff;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            background: #f7931a; /* Bitcoin turuncusu buton */
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            border: 1px solid #d67d0e; /* Koyu turuncu buton border */
+        }
+        .button:hover {
+            background: #d67d0e; /* Koyu turuncu hover */
+            border-color: #b86b0c;
+        }
+        .video-container {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #000; /* Video arka planı siyah */
+            padding: 10px 0;
+        }
+        .video-container video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Konton Trade Logo" class="logo">
+        <h1>Konton Trade</h1>
+        <p>Finansal Okuryazarlıkta Devrim: Mobil Oyun Konton Trade Sponsorlarını Arıyor!</p>
+    </header>
+
+    <div class="container">
+        <section id="intro">
+            <h2>Finansal Okuryazarlıkta Devrim</h2>
+            <p>Bir yıla yakın süren titiz bir çalışmanın ve büyük bir tutkunun ürünü olan <strong>Konton Trade</strong>, finansal okuryazarlığı herkes için erişilebilir ve eğlenceli hale getirmeyi amaçlayan yenilikçi bir iOS mobil oyun simülasyonudur. Artık yayınlanmaya hazır olan bu heyecan verici projeyi daha geniş kitlelere ulaştırmak ve finansal bilinci artırmak için değerli sponsorlarımızla güçlerimizi birleştirmek istiyoruz.</p>
+        </section>
+
+        <section id="features">
+            <h2>Oyuncuları Neler Bekliyor?</h2>
+            <p>Konton Trade, oyunculara <strong>100.000 TL sanal bakiye</strong> ile başlayan sürükleyici bir serüven sunuyor. Nihai hedef: Enflasyonun zorlu etkilerine karşı direnerek birikim yapmak, bu birikimleri akıllıca yatırımlara dönüştürmek ve <strong>1 milyon TL değerindeki o hayalinizdeki arabaya ulaşmak!</strong></p>
+            
+            <h3>Gerçekçi ve Kapsamlı Bir Yatırım Deneyimi:</h3>
+            <ul class="feature-list">
+                <li><strong>Borsa İstanbul'un Kalbinde:</strong> Oyuncular, ana yatırım aracı olarak Borsa İstanbul'da işlem gören 600'den fazla şirketin ne iş yaptığını öğrenirken, bu şirketlere yatırım yaparak portföylerini her gün dinamik bir şekilde değerlendiriyor.</li>
+                <li><strong>Gelişmiş Piyasa Simülasyonu:</strong> Arka planda, hisse senedi fiyatlarını modellemek için Geometrik Brown Hareketi gibi dünyaca kabul görmüş stokastik süreçler ve büyük algoritmalarla piyasa dinamikleri her gün yeniden şekilleniyor. Hisse senetleri için bilinçli olarak eklenmiş pozitif bir eğilim (bias) ile oyuncular Borsa İstanbul'a teşvik edilirken, kripto paralar için ise negatif eğilim ve yüksek volatilite ile daha temkinli olmaları gereken korkutucu senaryolarla karşılaşabiliyorlar.</li>
+                <li><strong>Çeşitlendirilmiş Portföy:</strong> Döviz, sabit getirili yatırım araçları ve yatırım fonları gibi farklı seçeneklerle portföy çeşitlendirmenin önemi vurgulanıyor.</li>
+                <li><strong>Öğrenirken Kazan:</strong> BIST'te listelenen 600'den fazla şirketin sembollerini tahmin etmeye dayalı eğlenceli mini oyunumuzla oyuncular, bilgilerini test ederken sanal bakiyelerine ek gelir sağlayabiliyor.</li>
+                <li><strong>Finansal Terimler Sözlüğü:</strong> Oyuncular, 400'den fazla finansal terimi uygulama içinden okuyup öğrenerek finansal jargon hakimiyetlerini artırıyor.</li>
+                <li><strong>Yapay Zeka Destekli Haber Akışı:</strong> Piyasaları anlık olarak yukarı ya da aşağı yönde sert etkileyebilen yapay zeka ile üretilmiş haber akışları, gerçek dünya dinamiklerini yansıtıyor. Daha da önemlisi, her haber metninin altında finansal okuryazarlığa dair yeni bir kavram öğretilerek öğrenme deneyimi pekiştiriliyor.</li>
+                <li><strong>Gerçekçi Maliyetler:</strong> Tıpkı gerçek hayatta olduğu gibi, yatırım araçlarındaki komisyon ve vergiler de simülasyona titizlikle dahil edildi.</li>
+                <li><strong>Bireysel Emeklilik Sistemi (BES) Simülasyonu:</strong> Oyuncular, her ayın 3'ünde güncellenen TÜİK enflasyon rakamlarını takip ediyor. Her ayın 15'inde sanal maaşlarından yeni yatırım için kullanılabilir bakiye elde ediyor ve dilerlerse bu tutarı BES'e aktararak %30 devlet katkısından anında yararlanıp otomatik olarak BEFAS fonlarına yatırım yapabiliyorlar.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Global Erişim ve Türkiye Piyasasının Tanıtımı</h2>
+            <p>Konton Trade, hem <strong>Türkçe</strong> hem de <strong>İngilizce</strong> olarak yayına hazır. Bu sayede sadece yerli kullanıcıların finansal bilincini artırmakla kalmıyor, aynı zamanda yabancı yatırımcılar için de Türkiye piyasasının dinamiklerini ve potansiyelini keşfetmeleri için eşsiz bir platform sunuyoruz.</p>
+        </section>
+
+        <section id="sponsorship">
+            <h2>Neden Konton Trade'e Sponsor Olmalısınız?</h2>
+            <ul>
+                <li>Finansal okuryazarlık gibi kritik bir konuda farkındalık yaratan sosyal sorumluluk projesine destek vererek toplumsal katkıda bulunabilir,</li>
+                <li>Eğlenceli ve eğitici bir oyun aracılığıyla gençlerden yetişkinlere kadar geniş bir kullanıcı kitlesine ulaşabilir,</li>
+                <li>Yenilikçi ve pozitif bir imaja sahip bir uygulama içinde markanızı öne çıkarabilir,</li>
+                <li>Türkiye ekonomisine ilgi duyan uluslararası bir kitleye erişim imkânı yakalayabilirsiniz.</li>
+            </ul>
+            <p>Konton Trade, finansal okuryazarlığı bir sonraki seviyeye taşıyacak, eğlendirirken öğreten, kapsamlı ve gerçekçi bir mobil deneyim sunuyor. Bu vizyoner projenin bir parçası olmak, markanızla finansal okuryazarlık hareketine öncülük etmek ve geleceğe yatırım yapmak için sizinle iş birliği yapmaktan heyecan duyarız.</p>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="#contact" class="button">Sponsorluk Fırsatları İçin İletişime Geçin</a>
+            </p>
+        </section>
+
+        <section id="screenshots">
+            <h2>Ekran Görüntüleri</h2>
+            <p>Uygulamadan bazı ekran görüntüleri aşağıdadır. Büyütmek için bir görsele tıklayın.</p>
+            <div class="screenshots">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.02.png" alt="Konton Trade Ekran Görüntüsü 1" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.11.png" alt="Konton Trade Ekran Görüntüsü 2" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.22.png" alt="Konton Trade Ekran Görüntüsü 3" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.31.png" alt="Konton Trade Ekran Görüntüsü 4" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.51.45.png" alt="Konton Trade Ekran Görüntüsü 5" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.14.png" alt="Konton Trade Ekran Görüntüsü 6" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 20.52.40.png" alt="Konton Trade Ekran Görüntüsü 7" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.18.49.png" alt="Konton Trade Ekran Görüntüsü 8" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.39.png" alt="Konton Trade Ekran Görüntüsü 9" onclick="openModal(this.src, this.alt)">
+                <img src="screenshots/Simulator Screenshot - iPhone 16 Pro - 2025-05-15 at 21.19.55.png" alt="Konton Trade Ekran Görüntüsü 10" onclick="openModal(this.src, this.alt)">
+            </div>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImg">
+            <div id="caption" class="modal-caption"></div>
+        </div>
+
+        <section id="contact" class="contact-info">
+            <h2>İletişim</h2>
+            <p>Detaylı bilgi ve sponsorluk fırsatları için lütfen bizimle iletişime geçin, finansal geleceği birlikte şekillendirelim!</p>
+            <p><strong>Konton Trade İnovasyon ve Geliştirme Koordinatörü</strong></p>
+            <p>Tarık İ. ALKAN</p>
+            <p><strong>E-posta:</strong> <a href="mailto:web3alkan@icloud.com">web3alkan@icloud.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tialkan/" target="_blank">linkedin.com/in/tialkan</a></p>
+            <p><strong>Akademik Profil:</strong> <a href="https://avesis.aybu.edu.tr/tialkan" target="_blank">avesis.aybu.edu.tr/tialkan</a></p>
+            <p><strong>Telefon:</strong> <a href="tel:00905448425526">0090 544 842 5526</a></p>
+        </section>
+    </div>
+
+    <div class="video-container">
+        <video controls autoplay muted loop playsinline>
+            <source src="konton.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Konton Trade. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        // Modal elementlerini al
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImg");
+        var captionText = document.getElementById("caption");
+
+        // Modal'ı açan fonksiyon
+        function openModal(src, alt) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            captionText.innerHTML = alt;
+        }
+
+        // Modal'ı kapatan fonksiyon (span X tıklandığında)
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Modal'ın dışına tıklandığında kapat
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // ESC tuşu ile modalı kapat
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 
